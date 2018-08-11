@@ -51,7 +51,7 @@ class AsyncWorker(base.Worker):
                 raise # pass to next try-except level
             except Exception, e:
                 self.handle_error(req, client, addr, e)
-        except socket.timeout as e:
+        except socket.timeout, e:
             self.handle_error(req, client, addr, e)
         except socket.error, e:
             if e[0] not in (errno.EPIPE, errno.ECONNRESET):

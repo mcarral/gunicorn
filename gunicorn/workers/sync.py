@@ -75,7 +75,7 @@ class SyncWorker(base.Worker):
             self.log.debug("Ignored premature client disconnection. %s", e)
         except StopIteration, e:
             self.log.debug("Closing connection. %s", e)
-        except socket.timeout as e:
+        except socket.timeout, e:
             self.handle_error(req, client, addr, e)
         except socket.error, e:
             if e[0] != errno.EPIPE:

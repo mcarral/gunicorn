@@ -238,7 +238,7 @@ def validate_callable(arity):
             try:
                 mod = __import__(mod_name, fromlist=[obj_name])
                 val = getattr(mod, obj_name)
-            except ImportError as e:
+            except ImportError, e:
                 raise TypeError(str(e))
             except AttributeError:
                 raise TypeError("Can not load '%s' from '%s'"
